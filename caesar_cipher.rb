@@ -1,7 +1,6 @@
-puts "Type in your phrase that you want encoded"
-sentence=gets.chomp.split('')
-puts "By how many letters do you want to shift by?"
-shift=gets.chomp.to_i
+def caesar_cipher(sentence,shift)
+sentence=sentence.split('')
+shift=shift.to_i
 shift=shift%26
 cipher=[]
 sentence.each do |letter|
@@ -29,5 +28,8 @@ sentence.each do |letter|
 		cipher<<letter
 	end
 end
-
 print cipher.join
+end
+
+#test
+caesar_cipher("hello, world!",7)
