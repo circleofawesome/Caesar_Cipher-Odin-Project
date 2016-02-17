@@ -1,12 +1,21 @@
-sentence="Hello, WORLD!!!".split('')
+puts "Type in your phrase that is to be encoded"
+sentence=gets.chomp.split('')
+puts "By how many letters do you want to shift?"
+shift=gets.chomp.to_i
+shift=shift%26
 cipher=[]
 sentence.each do |letter|
-	if (letter.ord>64&&letter.ord<86)||(letter.ord>96&&letter.ord<118)
-		num=letter.ord+5
-		cipher<<num.chr
-	elsif (letter.ord>85&&letter.ord<91)||(letter.ord>117&&letter.ord<123)
-			num=letter.ord-26+5
+	#num=letter.ord+shift
+	num=letter.ord
+	if (num>64&&num<91)||(num>96&&num<123)
+		num=num+shift
+		if num>122||(num>90&&num<97)
+			num=num-26
 			cipher<<num.chr
+		else
+			cipher<<num.chr
+		end
+		
 	else
 		cipher<<letter
 	end
